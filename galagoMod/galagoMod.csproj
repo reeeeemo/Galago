@@ -67,19 +67,9 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Eulogy\EulogyTracer.cs" />
     <Compile Include="LoadInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TraceV2\AfterCompleteTrigger.cs" />
-    <Compile Include="TraceV2\InitialLoadTraceV2.cs" />
-    <Compile Include="TraceV2\LoadTraceV2.cs" />
-    <Compile Include="TraceV2\Network.cs" />
-    <Compile Include="TraceV2\NetworkTrigger.cs" />
-    <Compile Include="TraceV2\SaveTraceV2.cs" />
-    <Compile Include="TraceV2\TraceV2Tracker.cs" />
-    <Compile Include="Utils\ComUtils.cs" />
-    <Compile Include="Utils\DrawUtils.cs" />
-    <Compile Include="Utils\MathUtils.cs" />
-    <Compile Include="Utils\SaveUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
