@@ -67,6 +67,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Actions.cs" />
     <Compile Include="Eulogy\EulogyTracer.cs" />
     <Compile Include="LoadInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
