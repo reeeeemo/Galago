@@ -31,6 +31,7 @@ namespace galagoMod
         public void UpdateEulogy(OSUpdateEvent os)
         {
             eTracer.Update((float)os.GameTime.ElapsedGameTime.TotalSeconds);
+            eTracer.Draw(GuiData.spriteBatch);
         }
     }
 }

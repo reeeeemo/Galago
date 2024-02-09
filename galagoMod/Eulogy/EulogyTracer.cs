@@ -36,6 +36,7 @@ namespace galagoMod.Euology
             color = Color.Green;
             breakSound = os.content.Load<SoundEffect>("SFX/DoomShock");
             totalTimer = seconds;
+            timer = seconds;
             lastFrameTime = 0f;
             active = 2;
             os.warningFlash();
@@ -78,10 +79,8 @@ namespace galagoMod.Euology
             if (active == 0) return;
             string text = (timer / totalTimer * 100.0).ToString("00.00");
             Vector2 vec2 = TraceTracker.font.MeasureString(text);
-            Vector2 position = new Vector2(10f, sb.GraphicsDevice.Viewport.Height - vec2.Y);
-            if (os.traceTracker.active) position.Y -= vec2.Y + 14f;
-            sb.DrawString(TraceTracker.font, text, position, color);
-            position.Y -= 25f;
+            Vector2 position = new Vector2((sb.GraphicsDevice.Viewport.Width / 2.0f) - vec2.X, (sb.GraphicsDevice.Viewport.Height / 2.0f) - vec2.Y);
+            sb.DrawString(TraceTracker.font, text, position, color, 0.0f, Vector2.Zero, 50.0f, SpriteEffects.None, 0.5f);
             sb.DrawString(TraceTracker.font, prefix, position, color, 0.0f, Vector2.Zero, new Vector2(0.3f), SpriteEffects.None, 0.5f);
         }
 
