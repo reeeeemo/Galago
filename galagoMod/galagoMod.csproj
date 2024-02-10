@@ -70,6 +70,7 @@
     <Compile Include="Actions.cs" />
     <Compile Include="Eulogy\EulogyTracer.cs" />
     <Compile Include="LoadInfo.cs" />
+    <Compile Include="Patches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

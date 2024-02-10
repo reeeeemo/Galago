@@ -15,6 +15,10 @@ using Pathfinder.Port;
 
 namespace galagoMod.Euology
 {
+    /*
+     * ||   EULOGY TRACER   ||
+     * This tracer does a thing
+     */ 
     public class Eulogy
     {
         public OS os;
@@ -77,11 +81,14 @@ namespace galagoMod.Euology
         public void Draw(SpriteBatch sb)
         {
             if (active == 0) return;
-            string text = (timer / totalTimer * 100.0).ToString("00.00");
-            Vector2 vec2 = TraceTracker.font.MeasureString(text);
-            Vector2 position = new Vector2((sb.GraphicsDevice.Viewport.Width / 2.0f) - vec2.X, (sb.GraphicsDevice.Viewport.Height / 2.0f) - vec2.Y);
-            sb.DrawString(TraceTracker.font, text, position, color, 0.0f, Vector2.Zero, 50.0f, SpriteEffects.None, 0.5f);
-            sb.DrawString(TraceTracker.font, prefix, position, color, 0.0f, Vector2.Zero, new Vector2(0.3f), SpriteEffects.None, 0.5f);
+            /*string text = (timer / totalTimer * 100.0).ToString("00.00");
+            Vector2 vector2 = TraceTracker.font.MeasureString(text);
+            Vector2 position = new Vector2(10f, sb.GraphicsDevice.Viewport.Height - vector2.Y);
+            if (os.traceTracker.active) position.Y -= vector2.Y + 14f; // display both if both are present
+            sb.DrawString(TraceTracker.font, text, position, color);
+            position.Y -= 25f;
+            sb.DrawString(TraceTracker.font, prefix, position, color, 0.0f, Vector2.Zero, new Vector2(0.3f), SpriteEffects.None, 0.5f); */
+            sb.DrawString(TraceTracker.font, "this is a test", new Vector2(2, 2), Color.Red);
         }
 
         public void UpdateImpactEffects(float t)
@@ -119,5 +126,8 @@ namespace galagoMod.Euology
         }
     }
     
-
+    public class TraceNetwork
+    {
+        public static Eulogy eulogyTracer = new Eulogy();
+    }
 }

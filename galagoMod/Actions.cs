@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using galagoMod.Euology;
 using Hacknet;
+using Microsoft.Xna.Framework;
 using Pathfinder.Event;
 using Pathfinder.Event.Gameplay;
 using Pathfinder.Meta.Load;
@@ -16,13 +17,12 @@ namespace galagoMod
     [Action("StartEulogy")]
     public class StartEulogy : Pathfinder.Action.PathfinderAction
     {
-        static Eulogy eTracer = new Eulogy();
         [XMLStorage]
         public float Seconds;
         public override void Trigger(object os_obj)
         {
             OS os = (OS)os_obj;
-            eTracer.Start(os, Seconds);
+            TraceNetwork.eulogyTracer.Start(os, Seconds);
             Action<OSUpdateEvent> eulogyUpdateDelegate = UpdateEulogy;
 
             EventManager<OSUpdateEvent>.AddHandler(eulogyUpdateDelegate);
@@ -30,8 +30,7 @@ namespace galagoMod
 
         public void UpdateEulogy(OSUpdateEvent os)
         {
-            eTracer.Update((float)os.GameTime.ElapsedGameTime.TotalSeconds);
-            eTracer.Draw(GuiData.spriteBatch);
+            TraceNetwork.eulogyTracer.Update((float)os.GameTime.ElapsedGameTime.TotalSeconds);
         }
     }
 }
