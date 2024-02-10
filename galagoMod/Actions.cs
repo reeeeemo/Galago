@@ -19,6 +19,7 @@ namespace galagoMod
     {
         [XMLStorage]
         public float Seconds;
+
         public override void Trigger(object os_obj)
         {
             OS os = (OS)os_obj;

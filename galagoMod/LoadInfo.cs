@@ -13,6 +13,7 @@ namespace galagoMod
 
         public override bool Load()
         {
+            this.HarmonyInstance.PatchAll();
             return true;
         }
     }

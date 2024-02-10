@@ -10,7 +10,6 @@ namespace galagoMod
     {
         static void Postfix()
         {
-            Console.WriteLine("drawing function");
             TraceNetwork.eulogyTracer.Draw(GuiData.spriteBatch);
         }
     }
