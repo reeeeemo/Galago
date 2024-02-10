@@ -40,7 +40,7 @@ namespace galagoMod.Euology
         {
             this.os = os;
             tracedComp = os.connectedComp;
-            color = Color.LightGreen;
+            color = new Color(74, 240, 135);
             breakSound = os.content.Load<SoundEffect>("SFX/DoomShock");
             totalTimer = seconds;
             timer = seconds;
