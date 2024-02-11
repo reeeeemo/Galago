@@ -51,12 +51,12 @@ namespace galagoMod.Euology
             prefix = "EULOGY : ";
         }
 
-        public void Stop()
+        public void Stop(bool addFlag = false)
         {
             active = 0;
             tracedComp = null;
             timer = totalTimer;
-            os.Flags.AddFlag("eulogyDone");
+            if (addFlag) os.Flags.AddFlag("eulogyDone");
         }
 
         public void Update(float t)
@@ -68,6 +68,10 @@ namespace galagoMod.Euology
             {
                 if (tracedComp.getFolderFromPath("/log").files.Count == 0)
                 {
+                    Stop(true);
+                }
+                else if (os.connectedIP != tracedComp.ip)
+                {
                     Stop();
                 }
 
@@ -76,6 +80,7 @@ namespace galagoMod.Euology
                     active = 0;
                     timer = 0f;
                     os.timerExpired();
+                    Stop(true);
                 }
             }
 
