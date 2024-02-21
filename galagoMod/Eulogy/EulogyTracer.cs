@@ -14,7 +14,7 @@ using Pathfinder.Meta.Load;
 using Pathfinder.Port;
 
 
-namespace galagoMod.Euology
+namespace galagoMod.Eulogy
 {
     /*
      * ||   EULOGY TRACER   ||
@@ -56,6 +56,7 @@ namespace galagoMod.Euology
             active = 0;
             tracedComp = null;
             timer = totalTimer;
+            lastFrameTime = 0f;
             if (addFlag) os.Flags.AddFlag("eulogyDone");
         }
 

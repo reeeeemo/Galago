@@ -1,4 +1,5 @@
-﻿using galagoMod.Euology;
+﻿using galagoMod.Eulogy;
+using galagoMod.Executables;
 using Hacknet;
 using Microsoft.Xna.Framework;
 using System;
@@ -11,6 +12,7 @@ namespace galagoMod
         static void Postfix()
         {
             TraceNetwork.eulogyTracer.Draw(GuiData.spriteBatch);
+            //BombNetwork.lirazBomb.Draw(GuiData.spriteBatch);
         }
     }
 }
