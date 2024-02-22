@@ -1,6 +1,9 @@
 ﻿using BepInEx.Hacknet;
 using BepInEx;
 using Microsoft.Xna.Framework.Graphics;
+using galagoMod.Executables;
+using Hacknet;
+using Pathfinder.Executable;
 
 namespace galagoMod
 {
@@ -13,7 +16,8 @@ namespace galagoMod
 
         public override bool Load()
         {
-            this.HarmonyInstance.PatchAll();
+            HarmonyInstance.PatchAll();
+
             return true;
         }
     }

@@ -43,7 +43,6 @@ namespace galagoMod.Executables
             ramCost = 10;
             runnerIP = "UNKNOWN";
             IdentifierName = "ForkBomb";
-            ExecutableManager.RegisterExecutable(GetType(), "LirazBomb");
         }
 
         public LirazBomb(Rectangle location, OS os, string ipFrom) : base(location, os, args)
@@ -51,7 +50,6 @@ namespace galagoMod.Executables
             ramCost = 10;
             runnerIP = ipFrom;
             IdentifierName = "ForkBomb";
-            ExecutableManager.RegisterExecutable(GetType(), "LirazBomb");
         }
 
         public override void LoadContent()

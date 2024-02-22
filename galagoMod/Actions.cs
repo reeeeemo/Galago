@@ -48,23 +48,18 @@ namespace galagoMod
     [Action("StartLirazBomb")]
     public class StartLirazBomb : Pathfinder.Action.PathfinderAction
     {
+        private bool hasLoaded = false;
         public override void Trigger(object os_obj)
         {
             OS os = (OS)os_obj;
-            //BombNetwork.lirazBomb.Start(os, os.getExeBounds());
-            //Action<OSUpdateEvent> lirazBombDelegate = UpdateLiraz;
-
-
+            if (!hasLoaded)
+            {
+                hasLoaded = true;
+                LirazBomb bomb = new LirazBomb(os.getExeBounds(), os);
+                ExecutableManager.RegisterExecutable(bomb.GetType(), "LirazBomb");
+            }
             os.launchExecutable("LirazBomb", LirazBomb.binary, 0);
 
-            //HackerScriptExecuter.runScript("forkbomb", os);
-
-            //EventManager<OSUpdateEvent>.AddHandler(lirazBombDelegate);
         }
-
-        //public void UpdateLiraz(OSUpdateEvent os)
-        //{
-            //BombNetwork.lirazBomb.Update((float)os.GameTime.ElapsedGameTime.TotalSeconds);
-        //}
     }
 }
