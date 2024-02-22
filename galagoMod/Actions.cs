@@ -48,18 +48,19 @@ namespace galagoMod
     [Action("StartLirazBomb")]
     public class StartLirazBomb : Pathfinder.Action.PathfinderAction
     {
-        private bool hasLoaded = false;
         public override void Trigger(object os_obj)
         {
             OS os = (OS)os_obj;
-            if (!hasLoaded)
-            {
-                hasLoaded = true;
-                LirazBomb bomb = new LirazBomb(os.getExeBounds(), os);
-                ExecutableManager.RegisterExecutable(bomb.GetType(), "LirazBomb");
-            }
-            os.launchExecutable("LirazBomb", LirazBomb.binary, 0);
 
+            var exe = new LirazBomb();
+
+            var location = new Rectangle(os.ram.bounds.X, os.ram.bounds.Y + RamModule.contentStartOffset,
+                RamModule.MODULE_WIDTH, (int)OS.EXE_MODULE_HEIGHT);
+            var args = new string[] { "arg1", "arg2" };
+
+            os.AddGameExecutable(exe, location, args);
+
+            os.launchExecutable(exe.IdentifierName, LirazBomb.binary, 0);
         }
     }
 }

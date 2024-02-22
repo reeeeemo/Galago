@@ -18,9 +18,8 @@ using Pathfinder.Port;
 
 namespace galagoMod.Executables
 {
-
-    [Executable("LirazBomb")]
-    public class LirazBomb : BaseExecutable
+    
+    public class LirazBomb : GameExecutable
     {
         public static float RAM_CHANGE_PS = 150f;
 
@@ -38,23 +37,23 @@ namespace galagoMod.Executables
 
         static string[] args = new string[3];
 
-        public LirazBomb(Rectangle location, OS os) : base(location, os, args)
+        public LirazBomb() : base()
         {
             ramCost = 10;
             runnerIP = "UNKNOWN";
-            IdentifierName = "ForkBomb";
+            IdentifierName = "LirazBomb";
         }
 
-        public LirazBomb(Rectangle location, OS os, string ipFrom) : base(location, os, args)
+        public LirazBomb(string ipFrom) : base()
         {
             ramCost = 10;
             runnerIP = ipFrom;
-            IdentifierName = "ForkBomb";
+            IdentifierName = "LirazBomb";
         }
 
-        public override void LoadContent()
+        public override void OnInitialize()
         {
-            base.LoadContent();
+            base.OnInitialize();
             if (binary.Equals(""))
             {
                 binary = Computer.generateBinaryString(5064);
@@ -63,12 +62,6 @@ namespace galagoMod.Executables
             float num = 7.55f;
             num = GuiData.detailfont.MeasureString("0").X - 0.15f;
             charsWide = (int)((float)bounds.Width / num + 0.5f);
-        }
-
-        public override void Killed()
-        {
-            TrackerCompleteSequence.NextCompleteForkbombShouldTrace = false;
-            base.Killed();
         }
 
         public override void Update(float t)
@@ -128,9 +121,8 @@ namespace galagoMod.Executables
             }
         }
 
-        public override void Completed()
+        public override void OnComplete()
         {
-            base.Completed();
             if (TrackerCompleteSequence.NextCompleteForkbombShouldTrace)
             {
                 TrackerCompleteSequence.NextCompleteForkbombShouldTrace = false;
