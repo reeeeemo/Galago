@@ -19,9 +19,9 @@ using Pathfinder.Port;
 namespace galagoMod.Executables
 {
     
-    public class LirazBomb : GameExecutable
+    public class LirazBomb : GameExecutable 
     {
-        public static float RAM_CHANGE_PS = 150f;
+        public static float RAM_CHANGE_PS = 90f;
 
         public int targetRamUse = 999999999;
 
@@ -39,14 +39,14 @@ namespace galagoMod.Executables
 
         public LirazBomb() : base()
         {
-            ramCost = 10;
+            ramCost = 6;
             runnerIP = "UNKNOWN";
             IdentifierName = "LirazBomb";
         }
 
         public LirazBomb(string ipFrom) : base()
         {
-            ramCost = 10;
+            ramCost = 6;
             runnerIP = ipFrom;
             IdentifierName = "LirazBomb";
         }
@@ -107,10 +107,12 @@ namespace galagoMod.Executables
                 num2 = 0;
             }
 
+            Color customColor = new Color(160, 116, 247);
+
             Vector2 position = new Vector2(bounds.X, bounds.Y);
             while (position.Y < (float)(bounds.Y + bounds.Height) - num)
             {
-                spriteBatch.DrawString(GuiData.detailfont, binary.Substring(num2, charsWide), position, Color.White);
+                spriteBatch.DrawString(GuiData.detailfont, binary.Substring(num2, charsWide), position, customColor);
                 num2 += charsWide;
                 if (num2 >= binary.Length - (charsWide + 1))
                 {
@@ -131,7 +133,8 @@ namespace galagoMod.Executables
             }
             else
             {
-                os.thisComputer.crash(runnerIP);
+                os.Flags.AddFlag("LbombDone");
+                os.exes.Remove(this);
             }
         }
     }
