@@ -37,6 +37,8 @@ namespace galagoMod.Executables
 
         static string[] args = new string[3];
 
+        public bool wasKilled = false;
+
         public LirazBomb() : base()
         {
             ramCost = 6;
@@ -133,9 +135,19 @@ namespace galagoMod.Executables
             }
             else
             {
-                os.Flags.AddFlag("LbombDone");
+                if (!wasKilled)
+                {
+                    os.Flags.AddFlag("LbombDone");
+                    wasKilled = false;
+                }
                 os.exes.Remove(this);
             }
+        }
+
+        public override void OnCompleteKilled()
+        {
+            base.OnCompleteKilled();
+            wasKilled = true;
         }
     }
 }

@@ -13,6 +13,7 @@ using Pathfinder.Meta.Load;
 using Pathfinder.Util;
 using galagoMod.Executables;
 using Pathfinder.Executable;
+using HarmonyLib;
 
 namespace galagoMod
 {
@@ -65,25 +66,27 @@ namespace galagoMod
         }
     }
 
-    // Disables ability to copy a file, by silencing OS.
+    // Disables ability to copy a file, by silencing connected computer.
     [Action("DisableCopyFile")]
     public class DisableCopyFile : Pathfinder.Action.PathfinderAction
     {
         public override void Trigger(object os_obj)
         {
             OS os = (OS)os_obj;
-            os.thisComputer.silent = true;
+            Console.WriteLine("copy galago started");
+            PatchVariables.SCP_ENABLED = false;
         }
     }
 
-    // Enables ability to copy a file, by unsilencing OS.
+    // Enables ability to copy a file, by unsilencing connected computer.
     [Action("EnableCopyFile")]
     public class EnableCopyFile : Pathfinder.Action.PathfinderAction
     {
         public override void Trigger(object os_obj)
         {
             OS os = (OS)os_obj;
-            os.thisComputer.silent = false;
+            Console.WriteLine("copy galago started");
+            PatchVariables.SCP_ENABLED = true;
         }
     }
 }
