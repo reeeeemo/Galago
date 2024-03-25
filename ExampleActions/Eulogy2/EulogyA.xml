@@ -1,0 +1,32 @@
+<ConditionalActions>
+  
+
+<!-- eulogy trace starts
+if logs removed, good! crash node and give flag.
+if logs not removed and disconnect, lock PC.
+make sure eulogy pc's are progress ONLY: since i cant remove admin, starting eulogy again is
+onconnect based, meaning the player should have admin when they reconnect so they dont die.
+
+if you dont want this to happen, simply execute a seperate eulogy file with a longer time. -->
+
+<!-- this is an example of a eulogy that repeats itself. -->
+
+
+
+<OnAdminGained target="snely">
+<StartEulogy Seconds="30"/>
+</OnAdminGained>
+
+<HasFlags requiredFlags="eulogyDone">
+<ForceConnectPlayer TargetCompID="groupchat" LikeReallyForce="false" />
+</HasFlags>
+
+<OnDisconnect target="snely">
+<RunFunction FunctionName="addFlags:eulogyLost" />
+<AddConditionalActions Filepath="Actions/Eulogy2/EulogyB.xml" DelayHost="advExamplePC" Delay="0"/>
+</OnDisconnect>
+
+
+
+
+</ConditionalActions>

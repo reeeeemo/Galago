@@ -1,0 +1,17 @@
+<ConditionalActions>
+  
+
+
+
+<HasFlags requiredFlags="LbombDone,lock1">
+<SetLock DelayHost="advExamplePC" Delay="0" Module="terminal" IsLocked="true" IsHidden="false" />
+<RunFunction FunctionName="removeFlags:LbombDone"/>
+<RunFunction FunctionName="removeFlags:lock1"/>
+<SetLock DelayHost="advExamplePC" Delay="2" Module="terminal" IsLocked="false" IsHidden="false" />
+</HasFlags>
+
+
+
+
+
+</ConditionalActions>

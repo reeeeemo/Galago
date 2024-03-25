@@ -1,0 +1,20 @@
+<ConditionalActions>
+  
+
+<!-- How lirazbomb works:
+It starts a purple, slower forkbomb. when it reaches the max ram value, it activates LbombDone, triggering whatever happens inside of the other file. However, since we dont want it to trigger again once we activate another lirazbomb, we add a "lock" flag, which makes it so that it'll only activate once the lock is unlocked and the lirazbomb is done. make sure the lock is different for every instance of lirazbomb. -->
+
+
+
+<Instantly>
+<StartLirazBomb />
+<RunFunction FunctionName="addFlags:lock1"/>
+<AddConditionalActions Filepath="Actions/LBomb/Activate2.xml" DelayHost="advExamplePC" Delay="0"/>
+</Instantly>
+
+
+
+
+
+
+</ConditionalActions>

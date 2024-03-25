@@ -1,0 +1,26 @@
+<ConditionalActions>
+  
+
+<!-- eulogy lost is an action flag. it's not required, but it allows me to do things like create chat logs or make it easier 
+when it's active. APPLY IT SEPERATELY, DO NOT USE eulogyLost WORD BY WORD FOR EVERY NODE. -->
+<HasFlags requiredFlags="eulogyDone">
+<RunFunction FunctionName="removeFlags:eulogyDone"/>
+<CancelScreenBleedEffect DelayHost="advExamplePC" Delay="0.01" />
+<RunFunction FunctionName="removeFlags:eulogyLost"/>
+
+</HasFlags>
+
+
+<Instantly>
+
+<StartScreenBleedEffect AlertTitle="EULOGY ACTIVE" CompleteAction="Actions/Eulogy2/EulogyEnd.xml" TotalDurationSeconds="0.02" DelayHost="advExamplePC" Delay="0">!!!
+!!!
+!!!</StartScreenBleedEffect>
+<AddConditionalActions Filepath="Actions/Eulogy2/EulogyC.xml" DelayHost="advExamplePC" Delay="0.1"/>
+</Instantly>
+
+
+
+
+
+</ConditionalActions>

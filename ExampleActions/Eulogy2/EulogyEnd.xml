@@ -1,0 +1,15 @@
+<ConditionalActions>
+ 
+
+
+
+
+<Instantly>
+<CrashComputer TargetComp="playerComp" CrashSource="playerComp" DelayHost="advExamplePC" Delay="0" />
+</Instantly>
+
+
+
+
+
+</ConditionalActions>
