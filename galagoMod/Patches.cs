@@ -12,7 +12,6 @@ namespace galagoMod
         static void Postfix()
         {
             TraceNetwork.eulogyTracer.Draw(GuiData.spriteBatch);
-            //BombNetwork.lirazBomb.Draw(GuiData.spriteBatch);
         }
     }
 }

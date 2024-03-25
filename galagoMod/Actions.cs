@@ -16,6 +16,7 @@ using Pathfinder.Executable;
 
 namespace galagoMod
 {
+    // Starts Custom Tracer, called Eulogy
     [Action("StartEulogy")]
     public class StartEulogy : Pathfinder.Action.PathfinderAction
     {
@@ -28,7 +29,6 @@ namespace galagoMod
             OS os = (OS)os_obj;
             TraceNetwork.eulogyTracer.Start(os, Seconds);
             Action<OSUpdateEvent> eulogyUpdateDelegate = UpdateEulogy;
-
 
             EventManager<OSUpdateEvent>.AddHandler(eulogyUpdateDelegate);
         }
@@ -45,6 +45,7 @@ namespace galagoMod
         }
     }
 
+    // Starts custom-made forkbomb, called LirazBomb
     [Action("StartLirazBomb")]
     public class StartLirazBomb : Pathfinder.Action.PathfinderAction
     {
@@ -61,6 +62,28 @@ namespace galagoMod
             os.AddGameExecutable(exe, location, args);
 
             os.launchExecutable(exe.IdentifierName, LirazBomb.binary, 0);
+        }
+    }
+
+    // Disables ability to copy a file, by silencing OS.
+    [Action("DisableCopyFile")]
+    public class DisableCopyFile : Pathfinder.Action.PathfinderAction
+    {
+        public override void Trigger(object os_obj)
+        {
+            OS os = (OS)os_obj;
+            os.thisComputer.silent = true;
+        }
+    }
+
+    // Enables ability to copy a file, by unsilencing OS.
+    [Action("EnableCopyFile")]
+    public class EnableCopyFile : Pathfinder.Action.PathfinderAction
+    {
+        public override void Trigger(object os_obj)
+        {
+            OS os = (OS)os_obj;
+            os.thisComputer.silent = false;
         }
     }
 }
