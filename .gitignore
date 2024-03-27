@@ -5,7 +5,6 @@
 
 # Libraries
 ./libs/
-!/libs/.gitkeep
 ./vs
 ./galagoMod/bin
 ./galagoMod/obj
