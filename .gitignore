@@ -4,7 +4,11 @@
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
 # Libraries
-./libs
+./libs/
+!/libs/.gitkeep
+./vs
+./galagoMod/bin
+./galagoMod/obj
 
 # User-specific files
 *.rsuser
