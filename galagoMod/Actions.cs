@@ -19,15 +19,14 @@ namespace galagoMod
 {
     // Starts Custom Tracer, called Eulogy
     [Action("StartEulogy")]
-    public class StartEulogy : Pathfinder.Action.PathfinderAction
+    public class StartEulogy : Pathfinder.Action.DelayablePathfinderAction
     {
         [XMLStorage]
         public float Seconds;
 
         // Action Trigger
-        public override void Trigger(object os_obj)
+        public override void Trigger(OS os)
         {
-            OS os = (OS)os_obj;
             TraceNetwork.eulogyTracer.Start(os, Seconds);
             Action<OSUpdateEvent> eulogyUpdateDelegate = UpdateEulogy;
 
@@ -48,12 +47,10 @@ namespace galagoMod
 
     // Starts custom-made forkbomb, called LirazBomb
     [Action("StartLirazBomb")]
-    public class StartLirazBomb : Pathfinder.Action.PathfinderAction
+    public class StartLirazBomb : Pathfinder.Action.DelayablePathfinderAction
     {
-        public override void Trigger(object os_obj)
+        public override void Trigger(OS os)
         {
-            OS os = (OS)os_obj;
-
             var exe = new LirazBomb();
 
             var location = new Rectangle(os.ram.bounds.X, os.ram.bounds.Y + RamModule.contentStartOffset,
@@ -68,11 +65,10 @@ namespace galagoMod
 
     // Disables ability to copy a file, by silencing connected computer.
     [Action("DisableCopyFile")]
-    public class DisableCopyFile : Pathfinder.Action.PathfinderAction
+    public class DisableCopyFile : Pathfinder.Action.DelayablePathfinderAction
     {
-        public override void Trigger(object os_obj)
+        public override void Trigger(OS os)
         {
-            OS os = (OS)os_obj;
             Console.WriteLine("copy galago started");
             PatchVariables.SCP_ENABLED = false;
         }
@@ -80,11 +76,10 @@ namespace galagoMod
 
     // Enables ability to copy a file, by unsilencing connected computer.
     [Action("EnableCopyFile")]
-    public class EnableCopyFile : Pathfinder.Action.PathfinderAction
+    public class EnableCopyFile : Pathfinder.Action.DelayablePathfinderAction
     {
-        public override void Trigger(object os_obj)
+        public override void Trigger(OS os)
         {
-            OS os = (OS)os_obj;
             Console.WriteLine("copy galago started");
             PatchVariables.SCP_ENABLED = true;
         }
