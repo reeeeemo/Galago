@@ -76,31 +76,31 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="0Harmony">
-      <HintPath>..\libs\0Harmony.dll</HintPath>
+      <HintPath>..\galagoMod\libs\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx.Core">
-      <HintPath>..\libs\BepInEx.Core.dll</HintPath>
+      <HintPath>..\galagoMod\libs\BepInEx.Core.dll</HintPath>
     </Reference>
     <Reference Include="BepInEx.Hacknet">
-      <HintPath>..\libs\BepInEx.Hacknet.dll</HintPath>
+      <HintPath>..\galagoMod\libs\BepInEx.Hacknet.dll</HintPath>
     </Reference>
     <Reference Include="FNA">
-      <HintPath>..\libs\FNA.dll</HintPath>
+      <HintPath>..\galagoMod\libs\FNA.dll</HintPath>
     </Reference>
     <Reference Include="Hacknet">
-      <HintPath>..\libs\Hacknet.exe</HintPath>
+      <HintPath>..\galagoMod\libs\Hacknet.exe</HintPath>
     </Reference>
     <Reference Include="Mono.Cecil">
-      <HintPath>..\libs\Mono.Cecil.dll</HintPath>
+      <HintPath>..\galagoMod\libs\Mono.Cecil.dll</HintPath>
     </Reference>
     <Reference Include="MonoMod.RuntimeDetour">
-      <HintPath>..\libs\MonoMod.RuntimeDetour.dll</HintPath>
+      <HintPath>..\galagoMod\libs\MonoMod.RuntimeDetour.dll</HintPath>
     </Reference>
     <Reference Include="MonoMod.Utils">
-      <HintPath>..\libs\MonoMod.Utils.dll</HintPath>
+      <HintPath>..\galagoMod\libs\MonoMod.Utils.dll</HintPath>
     </Reference>
     <Reference Include="PathfinderAPI">
-      <HintPath>..\libs\PathfinderAPI.dll</HintPath>
+      <HintPath>..\galagoMod\libs\PathfinderAPI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
