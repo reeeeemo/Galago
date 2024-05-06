@@ -18,6 +18,7 @@ namespace galagoMod
         {
             HarmonyInstance.PatchAll();
 
+
             return true;
         }
     }
