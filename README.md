@@ -20,7 +20,7 @@ Yes! Infact, I appreciate you doing so! This should work without Labryrinths.
 
 # Features
 
-Each action can be delayed by adding the usual `DelayHost="nodeId"` and `Delay="0.1"` attributes.
+**Note that NONE OF THESE ACTIONS ARE DELAYABLE.** Create a seperate addconditionalactions if you wish to delay these.
 
 ## Eulogy Trace
 
@@ -44,3 +44,11 @@ Why is it called LirazBomb? Well, I know of a little extension called Artif-
 <EnableCopyFile />`
 
 Simple in concept, simple in word. First one disables copying files from computers, second one enables it back. Great use with Eulogy, or if you simply don't want the person accessing something earlier than intended. Note that this command is universal, meaning it doesn't apply to a single computer.
+
+## SetTerminalColor
+
+`<SetTerminalColor Color="r, g, b, a" />`
+
+Sets the terminal text color. *"But extension owner!?!"* my fictional strawman says, *"B-But you could just change the theme terminal color!"* this doesn't work like it. It keeps the **previous themes terminal color**, meaning you can have multiple terminal colors on screen. Pretty nifty, for when you want to signify characters in terminal text, or just want to point out important information. Also good for story segments.
+
+Quick note that it **DOES NOT CHANGE THE INPUT TERMINAL COLOR** (etc where the ip is shown at the very bottom), meaning that it will still align with whatever terminal text color you have. 

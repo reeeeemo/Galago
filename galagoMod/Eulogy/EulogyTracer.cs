@@ -59,14 +59,6 @@ namespace galagoMod.Eulogy
             lastFrameTime = 0f;
             if (addFlag) os.Flags.AddFlag("eulogyDone");
         }
-        
-        public void BootOut()
-        {
-            if (os.connectedIP == tracedComp.ip) // Just double checking...
-            {
-                tracedComp.reboot(os.connectedIP);
-            }
-        }
 
         public void Update(float t)
         {
@@ -88,9 +80,8 @@ namespace galagoMod.Eulogy
                 {
                     active = 0;
                     timer = 0f;
-                    //os.timerExpired();
-                    BootOut();
-                    Stop();
+                    os.timerExpired();
+                    Stop(true);
                 }
             }
 

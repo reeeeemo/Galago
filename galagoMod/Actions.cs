@@ -84,4 +84,17 @@ namespace galagoMod
             PatchVariables.SCP_ENABLED = true;
         }
     }
+
+    // Sets color for terminal text!
+    [Action("SetTerminalColor")]
+    public class SetTerminalColor : Pathfinder.Action.DelayablePathfinderAction
+    {
+        [XMLStorage]
+        public string Color;
+
+        public override void Trigger(OS os)
+        {
+            os.terminalTextColor = Utils.convertStringToColor(Color);
+        }
+    }
 }
