@@ -87,7 +87,8 @@ namespace galagoMod.Executables
             int num = (int)(t * RAM_CHANGE_PS);
             if (os.ramAvaliable < num)
             {
-                Completed();
+                Result = CompletionResult.Success;
+                os.Flags.AddFlag("LbombDone");
                 return;
             }
 
@@ -123,31 +124,6 @@ namespace galagoMod.Executables
 
                 position.Y += num;
             }
-        }
-
-        public override void OnComplete()
-        {
-            if (TrackerCompleteSequence.NextCompleteForkbombShouldTrace)
-            {
-                TrackerCompleteSequence.NextCompleteForkbombShouldTrace = false;
-                TrackerCompleteSequence.TriggerETAS(os);
-                os.exes.Remove(this);
-            }
-            else
-            {
-                if (!wasKilled)
-                {
-                    os.Flags.AddFlag("LbombDone");
-                    wasKilled = false;
-                }
-                os.exes.Remove(this);
-            }
-        }
-
-        public override void OnCompleteKilled()
-        {
-            base.OnCompleteKilled();
-            wasKilled = true;
         }
     }
 }
