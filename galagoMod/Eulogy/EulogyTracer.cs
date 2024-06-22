@@ -89,7 +89,7 @@ namespace galagoMod.Eulogy
                     active = 0;
                     timer = 0f;
                     BootOut();
-                    Stop(true);
+                    Stop();
                 }
             }
 
