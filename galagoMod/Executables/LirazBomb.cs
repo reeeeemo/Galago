@@ -23,6 +23,8 @@ namespace galagoMod.Executables
     {
         public static float RAM_CHANGE_PS = 90f;
 
+        public float speed = 1f;
+
         public int targetRamUse = 999999999;
 
         public string runnerIP = "";
@@ -51,6 +53,14 @@ namespace galagoMod.Executables
             ramCost = 6;
             runnerIP = ipFrom;
             IdentifierName = "LirazBomb";
+        }
+
+        public LirazBomb(float _speed) : base()
+        {
+            ramCost = 6;
+            runnerIP = "UNKNOWN";
+            IdentifierName = "LirazBomb";
+            speed = _speed;
         }
 
         public override void OnInitialize()
@@ -83,8 +93,9 @@ namespace galagoMod.Executables
             {
                 return;
             }
-
-            int num = (int)(t * RAM_CHANGE_PS);
+            
+            int num = (int)(t * RAM_CHANGE_PS) * (int)speed;
+            Console.WriteLine(num);
             if (os.ramAvaliable < num)
             {
                 Result = CompletionResult.Success;

@@ -49,9 +49,16 @@ namespace galagoMod
     [Action("StartLirazBomb")]
     public class StartLirazBomb : Pathfinder.Action.DelayablePathfinderAction
     {
+        [XMLStorage]
+        public float speed;
+
         public override void Trigger(OS os)
         {
-            var exe = new LirazBomb();
+            LirazBomb exe;
+            if (speed > 1f)
+                exe = new LirazBomb(speed);
+            else
+                exe = new LirazBomb();
 
             var location = new Rectangle(os.ram.bounds.X, os.ram.bounds.Y + RamModule.contentStartOffset,
                 RamModule.MODULE_WIDTH, (int)OS.EXE_MODULE_HEIGHT);
