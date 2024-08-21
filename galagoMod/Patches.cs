@@ -19,15 +19,10 @@ namespace galagoMod
         
         public static void AddToHistory(List<string> lines, Color color)
         {
-            int index = History.Count;
             foreach (string line in lines)
             {
                 History.Add(new KeyValuePair<string, Color>(line, color));
             }
-            /*for (int i = index; i < line.Count; i++)
-            {
-                History.Add(new KeyValuePair<string, Color>(line[i], color));
-            }*/
         }
     }
 

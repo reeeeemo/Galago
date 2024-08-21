@@ -20,7 +20,8 @@ Yes! Infact, I appreciate you doing so! This should work without Labryrinths.
 
 # Features
 
-**Note that NONE OF THESE ACTIONS ARE DELAYABLE.** Create a seperate addconditionalactions if you wish to delay these.
+Each action can be delayed by adding the usual `DelayHost="nodeId"` and `Delay="0.1"` attributes.
+
 
 ## Eulogy Trace
 

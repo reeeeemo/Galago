@@ -55,7 +55,7 @@ namespace galagoMod
         public override void Trigger(OS os)
         {
             LirazBomb exe;
-            if (speed > 1f)
+            if (speed > 0)
                 exe = new LirazBomb(speed);
             else
                 exe = new LirazBomb();
@@ -76,7 +76,7 @@ namespace galagoMod
     {
         public override void Trigger(OS os)
         {
-            Console.WriteLine("copy galago started");
+            Console.WriteLine("copy galago ended");
             PatchVariables.SCP_ENABLED = false;
         }
     }
@@ -104,4 +104,5 @@ namespace galagoMod
             os.terminalTextColor = Utils.convertStringToColor(Color);
         }
     }
+
 }

@@ -94,7 +94,7 @@ namespace galagoMod.Executables
                 return;
             }
             
-            int num = (int)(t * RAM_CHANGE_PS) * (int)speed;
+            float num = (t * RAM_CHANGE_PS) * speed;
             Console.WriteLine(num);
             if (os.ramAvaliable < num)
             {
@@ -103,7 +103,7 @@ namespace galagoMod.Executables
                 return;
             }
 
-            ramCost += num;
+            ramCost += (int)num;
             if (ramCost > targetRamUse)
             {
                 ramCost = targetRamUse;
