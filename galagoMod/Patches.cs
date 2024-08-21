@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace galagoMod
 {
@@ -22,6 +23,22 @@ namespace galagoMod
             foreach (string line in lines)
             {
                 History.Add(new KeyValuePair<string, Color>(line, color));
+            }
+        }
+
+        public static void AddSameLineToHistory(string text, Color color, Rectangle bounds)
+        {
+            int size = History.Count;
+            if (size <= 0 || GuiData.tinyfont.MeasureString(History[size - 1] + text).X > (float)(bounds.Width - 6))
+            { 
+                Console.WriteLine("added" + text);
+                History.Add(new KeyValuePair<string, Color>(text, color));
+            } else
+            {
+                string updatedKey = History[size - 1].Key + text;
+
+                Console.WriteLine("updated" + updatedKey);
+                History[size - 1] = new KeyValuePair<string, Color>(updatedKey, color);
             }
         }
     }
@@ -68,6 +85,17 @@ namespace galagoMod
             var history = __instance.history;
             PatchVariables.AddToHistory(history, __instance.os.terminalTextColor);
             __instance.history.Clear();
+        }
+    }
+
+    [HarmonyPatch(typeof(Terminal), nameof(Terminal.write))]
+    public class TerminalWrite
+    {
+        static bool Prefix(Terminal __instance, string text)
+        {
+            PatchVariables.AddSameLineToHistory(text, __instance.os.terminalTextColor, __instance.bounds);
+            __instance.history.Clear();
+            return false;
         }
     }
 
